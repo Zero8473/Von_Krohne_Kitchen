@@ -24,6 +24,8 @@ namespace Von_Krohne_Kitchen
 
         public List<Ingredient> Ingredients = new List<Ingredient>();
 
+        public List<Step> Steps = new List<Step>();
+
         public int Servings;
 
         public int TimeInMinutes;
@@ -42,6 +44,11 @@ namespace Von_Krohne_Kitchen
         public void AddIngredient(Ingredient ingredient)
         {
             Ingredients.Add(ingredient);
+        }
+
+        public void AddStep(Step step)
+        {
+            Steps.Add(step);
         }
     }
 }
