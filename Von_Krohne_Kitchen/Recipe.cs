@@ -22,6 +22,8 @@ namespace Von_Krohne_Kitchen
 
         public List<Category> Categories = new List<Category>();
 
+        public List<Ingredient> Ingredients = new List<Ingredient>();
+
         public int Servings;
 
         public int TimeInMinutes;
@@ -35,6 +37,11 @@ namespace Von_Krohne_Kitchen
         public void AddCategory(Category category)
         {
             Categories.Add(category);
+        }
+
+        public void AddIngredient(Ingredient ingredient)
+        {
+            Ingredients.Add(ingredient);
         }
     }
 }
