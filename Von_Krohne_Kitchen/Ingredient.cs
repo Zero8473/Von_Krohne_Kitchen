@@ -14,6 +14,8 @@ namespace Von_Krohne_Kitchen
 
         public int Servings;
 
+        public Unit UnitOfMeasure;
+
         public Ingredient(Recipe rec, string title, decimal amount, int servings)
         {
             this.Rec = rec;
