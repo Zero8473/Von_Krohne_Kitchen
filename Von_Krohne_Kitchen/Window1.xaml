@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Margin="545,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Rezeptname:&#xD;&#xA;" HorizontalAlignment="Left" Margin="545,175,0,0" VerticalAlignment="Top"/>
+        <Button Content="Weiter" HorizontalAlignment="Left" Margin="626,337,0,0" VerticalAlignment="Top" Click="Button_Click" Height="39" Width="54"/>
+        <Image HorizontalAlignment="Left" Height="122" Margin="167,136,0,0" VerticalAlignment="Top" Width="192" Source="/images.jpg"/>
+        <TextBox HorizontalAlignment="Left" Margin="178,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextChanged="TextBox_TextChanged_2"/>
+        <Label Content="Bild hinzufügen:" HorizontalAlignment="Left" Margin="178,270,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
