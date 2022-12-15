@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="545,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="add_Recipe_Name" HorizontalAlignment="Left" Margin="545,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27" TextChanged="TextBox_TextChanged"/>
         <Label Content="Rezeptname:&#xD;&#xA;" HorizontalAlignment="Left" Margin="545,175,0,0" VerticalAlignment="Top"/>
         <Button Content="Weiter" HorizontalAlignment="Left" Margin="626,337,0,0" VerticalAlignment="Top" Click="Button_Click" Height="39" Width="54"/>
         <TextBox HorizontalAlignment="Left" Margin="178,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextChanged="TextBox_TextChanged_2"/>

@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Window3" Height="450" Width="800">
     <Grid>
-        <Button Content="Weiter" HorizontalAlignment="Left" Margin="654,332,0,0" VerticalAlignment="Top" Click="Button_Click" Height="35" Width="54"/>
-        <TextBox HorizontalAlignment="Left" Margin="263,202,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="116"/>
+        <Button x:Name="continue_btn" Content="Weiter" HorizontalAlignment="Left" Margin="654,332,0,0" VerticalAlignment="Top" Click="continue_btn_click" Height="35" Width="54"/>
+        <TextBox x:Name="TextBox_Step" HorizontalAlignment="Left" Margin="263,202,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="116"/>
 
     </Grid>
 </Window>

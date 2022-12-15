@@ -31,22 +31,26 @@ namespace Von_Krohne_Kitchen
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-      
-        }
+   
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+     
+
+        private void New_Recipe_click(object sender, RoutedEventArgs e)
         {
-            
+ 
             Window1 win1 = new Window1();
             win1.Show();
             this.Close();
+        }
+
+        private void Category_Select_click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

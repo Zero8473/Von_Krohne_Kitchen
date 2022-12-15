@@ -22,7 +22,9 @@ namespace Von_Krohne_Kitchen
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+      
+
+        private void continue_btn_click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -29,10 +29,7 @@ namespace Von_Krohne_Kitchen
             this.Close();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+    
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
@@ -40,6 +37,11 @@ namespace Von_Krohne_Kitchen
         }
 
         private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

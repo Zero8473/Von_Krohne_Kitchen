@@ -37,9 +37,14 @@ namespace Von_Krohne_Kitchen
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void add_Btn_click(object sender, RoutedEventArgs e)
         {
-            Window3 win3 = new Window3();
+
+        }
+
+        private void continue_btn_click(object sender, RoutedEventArgs e)
+        {Window3 win3 = new Window3();
             win3.Show();
             this.Close();
 
