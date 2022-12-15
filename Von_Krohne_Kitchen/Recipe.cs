@@ -20,7 +20,7 @@ namespace Von_Krohne_Kitchen
             set { _pic = value; }
         }
 
-        public List<Category> Categories = new List<Category>();
+        public Category category;
 
         public List<Ingredient> Ingredients = new List<Ingredient>();
 
@@ -30,25 +30,8 @@ namespace Von_Krohne_Kitchen
 
         public int TimeInMinutes;
 
-        public Recipe(string title, string pic)
+        public Recipe()
         {
-            this._title = title;
-            this._pic = pic;
-        }
-
-        public void AddCategory(Category category)
-        {
-            Categories.Add(category);
-        }
-
-        public void AddIngredient(Ingredient ingredient)
-        {
-            Ingredients.Add(ingredient);
-        }
-
-        public void AddStep(Step step)
-        {
-            Steps.Add(step);
         }
     }
 }

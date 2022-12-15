@@ -12,11 +12,8 @@ namespace Von_Krohne_Kitchen
 
         public string Description;
 
-        public Step(Recipe rec, int no, string description)
+        public Step()
         {
-            this.Rec = rec;
-            this.No = no;
-            this.Description = description;
         }
     }
 }
