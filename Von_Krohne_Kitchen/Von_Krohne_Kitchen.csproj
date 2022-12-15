@@ -6,4 +6,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\2. Lehrjahr\2022-01-14 Chat-o-fix\Chat-O-Fix\libraries\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
