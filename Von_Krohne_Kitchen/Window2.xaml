@@ -13,11 +13,13 @@
         </GroupBox>
         <CheckBox Content="Kategorie2" HorizontalAlignment="Left" Margin="161,172,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.468,0.546"/>
         <Button x:Name="continue_btn" Content="Weiter" HorizontalAlignment="Left" Margin="653,302,0,0" VerticalAlignment="Top" Height="35" Width="54" Click="continue_btn_click"/>
-        <TextBox x:Name="add_Ingridients" HorizontalAlignment="Left" Margin="544,160,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Height="25"/>
+        <TextBox x:Name="add_Ingridients" HorizontalAlignment="Left" Margin="544,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Height="25"/>
         <Label Content="Zutaten:" HorizontalAlignment="Left" Margin="544,129,0,0" VerticalAlignment="Top"/>
         <Button x:Name="add_Btn" Content="Hinzufügen" HorizontalAlignment="Left" Margin="688,163,0,0" VerticalAlignment="Top" Click="add_Btn_click"/>
-        <TextBox x:Name="Show_Ingridients" HorizontalAlignment="Left" Margin="361,129,0,0" Text="Hinzugefügte Zutaten" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="173" TextChanged="TextBox_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="Show_Ingridients" HorizontalAlignment="Left" Margin="361,129,0,0" Text="Hinzugefügte Zutaten" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="173" TextChanged="TextBox_TextChanged" IsEnabled="False" TextInput="added_Ingred"/>
         <Label Content="Kategorie erstellen&#xD;&#xA;" HorizontalAlignment="Left" Height="32" Margin="102,325,0,0" VerticalAlignment="Top" Width="124"/>
-        <TextBox x:Name="add_New_Category" HorizontalAlignment="Left" Margin="106,357,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="add_New_Category" HorizontalAlignment="Left" Margin="106,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Menge" HorizontalAlignment="Left" Margin="550,200,0,0" VerticalAlignment="Top" Width="57" IsEditable="True" DataContextChanged="Menge_Select"/>
+        <ComboBox x:Name="Einheit" HorizontalAlignment="Left" Margin="623,200,0,0" VerticalAlignment="Top" Width="47"/>
     </Grid>
 </Window>

@@ -22,6 +22,9 @@ namespace Von_Krohne_Kitchen
             InitializeComponent();
         }
 
+        List<string> ingred = new List<string>();
+
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -31,22 +34,42 @@ namespace Von_Krohne_Kitchen
         {
 
         }
+      
+        private void add_Btn_click(object sender, RoutedEventArgs e)
+        {
+            
+            ingred.Add(add_Ingridients.Text);
+            string IngString = string.Join(Environment.NewLine + "-" , ingred);
+            Show_Ingridients.Text = IngString;
+        
+
+
+
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
+           
+        }
+
+        
+     
+        private void continue_btn_click(object sender, RoutedEventArgs e)
+        {
+            Window3 win3 = new Window3();
+            win3.Show();
+            this.Close();
 
         }
 
-
-        private void add_Btn_click(object sender, RoutedEventArgs e)
+        private void added_Ingred(object sender, TextCompositionEventArgs e)
         {
 
         }
 
-        private void continue_btn_click(object sender, RoutedEventArgs e)
-        {Window3 win3 = new Window3();
-            win3.Show();
-            this.Close();
+        private void Menge_Select(object sender, DependencyPropertyChangedEventArgs e)
+        {
 
         }
     }
