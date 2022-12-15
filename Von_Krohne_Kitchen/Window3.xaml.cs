@@ -13,33 +13,16 @@ using System.Windows.Shapes;
 namespace Von_Krohne_Kitchen
 {
     /// <summary>
-    /// Interaktionslogik für Window1.xaml
+    /// Interaktionslogik für Window3.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Window3 : Window
     {
-        public Window1()
+        public Window3()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Window2 win2= new Window2();
-            win2.Show();
-            this.Close();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
         {
 
         }

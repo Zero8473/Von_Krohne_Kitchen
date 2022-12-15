@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace Von_Krohne_Kitchen
 {
     /// <summary>
     /// Interaktionslogik für Window2.xaml
@@ -34,6 +34,14 @@ namespace WpfApp1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window3 win3 = new Window3();
+            win3.Show();
+            this.Close();
 
         }
     }
