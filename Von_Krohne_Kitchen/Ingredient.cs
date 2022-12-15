@@ -12,16 +12,10 @@ namespace Von_Krohne_Kitchen
 
         public decimal Amount;
 
-        public int Servings;
-
         public Unit UnitOfMeasure;
 
-        public Ingredient(Recipe rec, string title, decimal amount, int servings)
+        public Ingredient()
         {
-            this.Rec = rec;
-            this.Title = title;
-            this.Amount = amount;
-            this.Servings = servings;
         }
     }
 }

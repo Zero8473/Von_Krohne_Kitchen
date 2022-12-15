@@ -6,13 +6,12 @@ namespace Von_Krohne_Kitchen
 {
     class Category
     {
+        public int ID;
         public string Title;
         public string Color;
 
-        public Category(string title, string color)
+        public Category()
         {
-            this.Title = title;
-            this.Color = color;
         }
     }
 }
