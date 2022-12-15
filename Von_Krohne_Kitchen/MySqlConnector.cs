@@ -93,6 +93,22 @@ namespace Von_Krohne_Kitchen
             return msg;
         }
 
+        /// <summary>
+        /// Gibt letzte eingefügte ID zurück
+        /// </summary>
+        /// <param name="dml"></param>
+        /// <returns>Last Inserted ID</returns>
+        public long executeInsert(string dml)
+        {
+            long retValue = -1;
+            MySqlCommand sqlCommand = this.OpenConnection();
+            sqlCommand.CommandText = dml;
+            sqlCommand.ExecuteNonQuery();
+            retValue = sqlCommand.LastInsertedId;
+            this.CloseConnection();
+            return retValue;
+        }
+
         public int executeNonQuery(string dml)
         {
             int retValue = -1;
