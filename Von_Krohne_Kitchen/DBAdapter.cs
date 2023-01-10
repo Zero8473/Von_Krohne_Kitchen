@@ -29,7 +29,7 @@ namespace Von_Krohne_Kitchen
 
         public bool InsertRecipe(Recipe rec)
         {
-            string mySqlInsert = String.Format("INSERT INTO recipe (title, pic, servings, time, category) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}'); ", rec.Title, rec.Pic, rec.Servings, rec.TimeInMinutes, rec.category);
+            string mySqlInsert = String.Format("INSERT INTO recipe (title, pic, servings, time, category) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}'); ", rec.Title, rec.Pic, rec.Servings, rec.TimeInMinutes, rec.category.ID);
             int recid = unchecked((int)mySqlConnector.executeInsert(mySqlInsert));
 
             if(recid == -1)
