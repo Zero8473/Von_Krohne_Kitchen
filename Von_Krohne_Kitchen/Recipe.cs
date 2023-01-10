@@ -6,6 +6,13 @@ namespace Von_Krohne_Kitchen
 {
     class Recipe
     {
+        private int _id;
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
         private string _title;
         public string Title
         {
