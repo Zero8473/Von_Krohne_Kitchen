@@ -12,21 +12,32 @@ namespace Von_Krohne_Kitchen
         public const string DB_NAME = "";
         private MySqlConnector mySqlConnector = new MySqlConnector(DB_NAME);
 
-        public int InsertCategorie(Category cat)
+        public bool InsertCategorie(Category cat)
         {
-            string mySqlInsert = String.Format("INSERT INTO tblcategories (id, title, color) VALUES ('{0}', '{1}', '{2}'); ", cat.ID, cat.Title, cat.Color);
-            return mySqlConnector.executeNonQuery(mySqlInsert);
+            string mySqlInsert = String.Format("INSERT INTO category (title, color) VALUES ('{1}', '{2}'); ", cat.Title, cat.Color);
+            int catid = unchecked((int)mySqlConnector.executeInsert(mySqlInsert));
+
+            if(catid == -1)
+            {
+                return false
+            }
+
+            cat.ID = catid;
+
+            return true;
         }
 
         public bool InsertRecipe(Recipe rec)
         {
-            string mySqlInsert = String.Format("INSERT INTO tblrecipes (title, pic, servings, time, category) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}'); ", rec.Title, rec.Pic, rec.Servings, rec.TimeInMinutes, rec.category);
+            string mySqlInsert = String.Format("INSERT INTO recipe (title, pic, servings, time, category) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}'); ", rec.Title, rec.Pic, rec.Servings, rec.TimeInMinutes, rec.category);
             int recid = unchecked((int)mySqlConnector.executeInsert(mySqlInsert));
 
             if(recid == -1)
             {
                 return false;
             }
+
+            rec.ID = recid;
 
             foreach(Step step in rec.Steps)
             {
@@ -49,13 +60,13 @@ namespace Von_Krohne_Kitchen
 
         private int InsertStep(int recid, Step step)
         {
-            string mySqlInsertStep = String.Format("INSERT INTO tblsteps (recid, no, description) VALUES ('{0}', '{1}', '{2}'); ", recid, step.No, step.Description);
+            string mySqlInsertStep = String.Format("INSERT INTO step (recid, no, description) VALUES ('{0}', '{1}', '{2}'); ", recid, step.No, step.Description);
             return mySqlConnector.executeNonQuery(mySqlInsertStep);
         }
 
         private int InsertIngredient(int recid, Ingredient ing)
         {
-            string mySqlInsertIng = String.Format("INSERT INTO tblingredients (recid, title, amount, unit) VALUES ('{0}','{1}','{2}','{3}'); ", recid, ing.Title, ing.Amount, ing.UnitOfMeasure.ToString());
+            string mySqlInsertIng = String.Format("INSERT INTO ingredient (recid, title, amount, unit) VALUES ('{0}','{1}','{2}','{3}'); ", recid, ing.Title, ing.Amount, ing.UnitOfMeasure.ToString());
             return mySqlConnector.executeNonQuery(mySqlInsertIng);
         }
 
@@ -63,7 +74,7 @@ namespace Von_Krohne_Kitchen
         {
             List<Category> cats = new List<Category>();
 
-            string mySqlQueryCat = "SELECT id, title, color FROM tblcategories; ";
+            string mySqlQueryCat = "SELECT id, title, color FROM category; ";
             MySqlDataReader CatReader = mySqlConnector.ExecuteQuery(mySqlQueryCat);
 
             while (CatReader.Read())
@@ -84,13 +95,14 @@ namespace Von_Krohne_Kitchen
         {
             List<Recipe> recipes = new List<Recipe>();
 
-            string mySqlQueryRecipe = "SELECT id, title, pic, servings, time, category FROM tblrecipes; ";
+            string mySqlQueryRecipe = "SELECT id, title, pic, servings, time, category FROM recipe; ";
             MySqlDataReader RecReader = mySqlConnector.ExecuteQuery(mySqlQueryRecipe);
 
             while(RecReader.Read())
             {
                 Recipe rec = new Recipe();
 
+                rec.ID = RecReader.GetInt32("id");
                 rec.Title = RecReader.GetString("title");
                 rec.Pic = RecReader.GetString("pic");
                 rec.Servings = RecReader.GetInt32("servings");
@@ -110,7 +122,7 @@ namespace Von_Krohne_Kitchen
 
         private void GetStepsForRecipe(Recipe rec, MySqlDataReader RecReader)
         {
-            string mySqlQuerySteps = String.Format("SELECT no, description FROM tblsteps WHERE recid='{0}'; ", RecReader.GetString("id"));
+            string mySqlQuerySteps = String.Format("SELECT no, description FROM step WHERE recid='{0}'; ", rec.ID);
             MySqlDataReader StepReader = mySqlConnector.ExecuteQuery(mySqlQuerySteps);
 
             while (StepReader.Read())
@@ -127,7 +139,7 @@ namespace Von_Krohne_Kitchen
 
         private void GetIngredientsForRecipe(Recipe rec, MySqlDataReader RecReader)
         {
-            string mySqlQueryIngredients = String.Format("SELECT title, amount, unit FROM tblingredients WHERE recid='{0}'; ", RecReader.GetString("id"));
+            string mySqlQueryIngredients = String.Format("SELECT title, amount, unit FROM ingredient WHERE recid='{0}'; ", rec.ID);
             MySqlDataReader IngReader = mySqlConnector.ExecuteQuery(mySqlQueryIngredients);
 
             while (IngReader.Read())
@@ -154,6 +166,46 @@ namespace Von_Krohne_Kitchen
                     rec.category = cat;
                 }
             }
+        }
+
+        public int DeleteRecipe(Recipe rec)
+        {
+            DeleteIngredientsForRecipe(rec);
+
+            DeleteStepsForRecipe(rec);
+
+            string mySqlDelete = String.Format("DELETE FROM recipe WHERE id='{0}'; ", rec.ID);
+            return mySqlConnector.executeNonQuery(mySqlDelete);
+        }
+
+        private int DeleteIngredientsForRecipe(Recipe rec)
+        {
+            string mySqlDelete = String.Format("DELETE FROM tblingredients WHERE recid='{0}'; ", rec.ID);
+            return mySqlConnector.executeNonQuery(mySqlDelete);
+        }
+
+        private int DeleteStepsForRecipe(Recipe rec)
+        {
+            string mySqlDelete = String.Format("DELETE FROM tblsteps WHERE recid='{0}'; ", rec.ID);
+            return mySqlConnector.executeNonQuery(mySqlDelete);
+        }
+
+        public int UpdateRecipe(Recipe rec)
+        {
+            string mySqlUpdate = String.Format("UPDATE recipe SET title='{0}', pic='{1}', servings='{2}', time='{3}', category='{4}' WHERE id='{5}'; ", rec.Title, rec.Pic, rec.Servings, rec.TimeInMinutes, rec.category, rec.ID);
+            return mySqlConnector.executeNonQuery(mySqlUpdate);
+        }
+
+        public int UpdateStep(Step step)
+        {
+            string mySqlUpdate = String.Format("UPDATE step SET description='{0}' WHERE recid='{1}' AND no='{2}'; ", step.Description, step.Rec.ID, step.No);
+            return mySqlConnector.executeNonQuery(mySqlUpdate);
+        }
+
+        public int UpdateIngredient(Ingredient ing)
+        {
+            string mySqlUpdate = String.Format("UPDATE ingredient SET amount='{0}', unit='{1}' WHERE recid='{2}' and title='{3}'; ", ing.Amount, ing.UnitOfMeasure.ToString(), ing.Rec.ID, ing.Title);
+            return mySqlConnector.executeNonQuery(mySqlUpdate);
         }
     }
 }
