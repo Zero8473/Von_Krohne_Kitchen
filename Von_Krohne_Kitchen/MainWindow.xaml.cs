@@ -24,5 +24,33 @@ namespace Von_Krohne_Kitchen
         {
             InitializeComponent();
         }
+
+         
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+   
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+     
+
+        private void New_Recipe_click(object sender, RoutedEventArgs e)
+        {
+ 
+            Window1 win1 = new Window1();
+            win1.Show();
+            this.Close();
+        }
+
+        private void Category_Select_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
