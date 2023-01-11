@@ -1,0 +1,14 @@
+﻿<Window x:Class="Von_Krohne_Kitchen.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Von_Krohne_Kitchen"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="continue_btn" Content="Weiter" HorizontalAlignment="Left" Margin="654,332,0,0" VerticalAlignment="Top" Click="continue_btn_click" Height="35" Width="54"/>
+        <TextBox x:Name="TextBox_Step" HorizontalAlignment="Left" Margin="263,202,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Height="116"/>
+
+    </Grid>
+</Window>
