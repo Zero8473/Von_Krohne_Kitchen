@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:Von_Krohne_Kitchen"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel LastChildFill="False">
+        <ListView x:Name="Recipe_List" RenderTransformOrigin="0.49,0.507" DockPanel.Dock="Bottom" Height="359" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
 
-    </Grid>
+                    <GridViewColumn  Header="Bild" Width="100"/>
+
+                    <GridViewColumn Width="100">
+                        <GridViewColumnHeader>Rezept
+                            <GridViewColumnHeader.ContextMenu>
+                                <ContextMenu Name="Rezept">
+                                </ContextMenu>
+                            </GridViewColumnHeader.ContextMenu>
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn  Header="Bearbeiten" Width="100"/>
+                    </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="SearchBar" Text="Suche" TextWrapping="Wrap" DockPanel.Dock="Right" Width="335" Height="30" Margin="0,0,10,0" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="New_Recipe" Content="Neu" Width="62" Height="35" Margin="5,0,5,0" Click="New_Recipe_click"/>
+        <Button x:Name="Category_Select" Content="Kategorien" Width="70" Height="35" Margin="5,0,5,0" Click="Category_Select_click"/>
+    </DockPanel>
 </Window>
